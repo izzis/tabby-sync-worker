@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE,
+  token_sha256 TEXT NOT NULL,
+  disabled INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS configs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  name TEXT NOT NULL DEFAULT '',
+  content TEXT NOT NULL DEFAULT '',
+  last_used_with_version TEXT,
+  created_at TEXT NOT NULL,
+  modified_at TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_configs_user ON configs(user_id);

@@ -1,0 +1,20 @@
+{
+  "name": "tabby-sync-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tabby sync-compatible config host on Cloudflare Workers + D1",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260918.1",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.134.0"
+  }
+}

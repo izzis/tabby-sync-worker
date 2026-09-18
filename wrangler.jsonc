@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tabby-sync-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tabby-sync",
+      "database_id": "REPLACE_ME__wrangler-d1-create"
+    }
+  ],
+  "vars": {
+    // Use another uncommon slug. Second layer only:
+    // the sign-in page still requires a valid sync token.
+    "ROTATE_PATH": "/rotate-token"
+  }
+}
